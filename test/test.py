@@ -4,7 +4,6 @@ import pymysql
 from test_runner import BaseComponentTestCase
 from qubell.api.private.testing import environment, instance, workflow, values
 
-
 @environment({
     "default": {},
     "AmazonEC2_CentOS_63": {
@@ -53,10 +52,10 @@ from qubell.api.private.testing import environment, instance, workflow, values
     }
 })
 class MysqlTestCase(BaseComponentTestCase):
-    name = "component-mysql-dev"
+    name = "Database"
+    meta = "https://raw.githubusercontent.com/qubell-bazaar/component-mysql-dev/master/meta.yml"
     apps = [{
         "name": name,
-        "file": os.path.realpath(os.path.join(os.path.dirname(__file__), '../%s.yml' % name))
     }]
 
     @instance(byApplication=name)
